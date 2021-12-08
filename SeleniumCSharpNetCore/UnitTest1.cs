@@ -38,17 +38,17 @@ namespace SeleniumCSharpNetCore
         public void scrollJavaScript()
         {
             driver.Navigate().GoToUrl("http://en.wikipedia.org");
-            ///driver.Manage().Window.FullScreen();
+            driver.Manage().Window.FullScreen();
 
 
-            ////Scroll virtical top to bottom
-            ////IJavaScriptExecutor js = driver as IJavaScriptExecutor;
-            //IJavaScriptExecutor js = (IJavaScriptExecutor)driver; // casting the driver
-            //System.Threading.Thread.Sleep(5000);
-            //js.ExecuteScript("window.scrollBy(0,3000);");
-            //Console.WriteLine("Tets 1");
-            //Assert.Pass();
-            ////driver.Close();
+            //Scroll virtical top to bottom
+            //IJavaScriptExecutor js = driver as IJavaScriptExecutor;
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver; // casting the driver
+            System.Threading.Thread.Sleep(5000);
+            js.ExecuteScript("window.scrollBy(0,3000);");
+            Console.WriteLine("Tets 1");
+            Assert.Pass();
+            //driver.Close();
 
 
             //    //You should use Actions class to perform scrolling to element.
@@ -81,7 +81,7 @@ namespace SeleniumCSharpNetCore
 
 
 
-            }
+        }
         //    [Test]
         //public void Part3Lesson()
         //{
@@ -101,7 +101,7 @@ namespace SeleniumCSharpNetCore
         //   Console.WriteLine("Part3Lesson");
         //    Assert.Pass();
         //    Driver.Close();
-      
+
 
         //}
 
