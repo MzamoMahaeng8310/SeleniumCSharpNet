@@ -21,7 +21,7 @@ namespace SeleniumCSharpNetCore
             //Driver = new ChromeDriver(options);
 
             Console.WriteLine("Setup");
-            Driver = new ChromeDriver();
+            driver = new ChromeDriver();
         }
 
         //[Test]
@@ -35,7 +35,7 @@ namespace SeleniumCSharpNetCore
         //}
 
         [Test]
-        public void scrollJavaScript()
+        public void ScrollJavaScript()
         {
             driver.Navigate().GoToUrl("http://en.wikipedia.org");
             driver.Manage().Window.FullScreen();
