@@ -98,12 +98,9 @@ namespace SeleniumCSharpNetCore
             // CustomControl control = new CustomControl();
             CustomControl.ComboBox("ContentPlaceHolder1_AllMealsCombo", "Tomato");
 
-                                
-
-            Console.WriteLine("Part3Lesson");
-
+           Console.WriteLine("Part3Lesson");
             Assert.Pass();
-            Driver.Quit();
+            Driver.Close();
       
 
         }
