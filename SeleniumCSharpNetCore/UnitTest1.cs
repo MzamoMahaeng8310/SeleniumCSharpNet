@@ -8,7 +8,7 @@ namespace SeleniumCSharpNetCore
 {
     public class Tests : DriverHelper
     {
-        public  IWebDriver driver;
+        public  IWebDriver Driver;
 
         [SetUp]
         public void Setup()
@@ -50,33 +50,33 @@ namespace SeleniumCSharpNetCore
         //    //driver.Close();
 
 
-        //    //    //You should use Actions class to perform scrolling to element.
-        //    //    //use this library using OpenQA.Selenium.Interactions;
-        //    //    var element = driver.FindElement(By.XPath("//a[contains(text(),'Community portal')]"));
-        //    //    Actions actions = new Actions(driver);
-        //    //    actions.MoveToElement(element);
-        //    //    actions.Perform();
-        //    //    element.Click();
+        //    //    //    //You should use Actions class to perform scrolling to element.
+        //    //    //    //use this library using OpenQA.Selenium.Interactions;
+        //    //    //    var element = driver.FindElement(By.XPath("//a[contains(text(),'Community portal')]"));
+        //    //    //    Actions actions = new Actions(driver);
+        //    //    //    actions.MoveToElement(element);
+        //    //    //    actions.Perform();
+        //    //    //    element.Click();
 
-        //    //    ////You should use Actions class to perform scrolling to element.
-        //    //    IJavaScriptExecutor jsscroll = (IJavaScriptExecutor) driver; // cast the driver into IJavaScriptExecutor
-        //    //    //IJavaScriptExecutor jsscroll = driver as IJavaScriptExecutor;
-        //    //    var elem = driver.FindElement(By.XPath("//a[contains(text(),'Community portal')]"));
-        //    //    jsscroll.ExecuteScript("arguments[0].scrollIntoView(true);", elem);
-        //    //    elem.Click();
+        //    //    //    ////You should use Actions class to perform scrolling to element.
+        //    //    //    IJavaScriptExecutor jsscroll = (IJavaScriptExecutor) driver; // cast the driver into IJavaScriptExecutor
+        //    //    //    //IJavaScriptExecutor jsscroll = driver as IJavaScriptExecutor;
+        //    //    //    var elem = driver.FindElement(By.XPath("//a[contains(text(),'Community portal')]"));
+        //    //    //    jsscroll.ExecuteScript("arguments[0].scrollIntoView(true);", elem);
+        //    //    //    elem.Click();
 
 
-        //    //    //If you want to scroll horizontally in the right direction, use the following JavaScript.
-        //    //    //IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
-        //    //    //js.ExecuteScript("windot.scrollBy(2000,0)");
+        //    //    //    //If you want to scroll horizontally in the right direction, use the following JavaScript.
+        //    //    //    //IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+        //    //    //    //js.ExecuteScript("windot.scrollBy(2000,0)");
 
-        //    //    //If you want to scroll horizontally in the left direction, use the following JavaScript.
-        //    //    // IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
-        //    //    //js.ExecuteScript("window.scrollBy(-2000,0)");
+        //    //    //    //If you want to scroll horizontally in the left direction, use the following JavaScript.
+        //    //    //    // IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+        //    //    //    //js.ExecuteScript("window.scrollBy(-2000,0)");
 
-        //    //    //Virtical scroll scroll from up to down
-        //    //    //IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
-        //    //    //js.ExecuteScript("window.scrollTo(0, document.body.scrollHeight)");
+        //    //    //    //Virtical scroll scroll from up to down
+        //    //    //    //IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+        //    //    //    //js.ExecuteScript("window.scrollTo(0, document.body.scrollHeight)");
 
 
 
@@ -85,21 +85,23 @@ namespace SeleniumCSharpNetCore
         public void Part3Lesson()
         {
 
-            Driver.Navigate().GoToUrl("https:///demowf.aspnetawesome.com/");
+            driver.Navigate().GoToUrl("https:///demowf.aspnetawesome.com/");
+         
             //type in the auto complete checkbox
-            IWebElement txtBox = Driver.FindElement(By.Id("ContentPlaceHolder1_Meal"));
+            IWebElement txtBox = driver.FindElement(By.Id("ContentPlaceHolder1_Meal"));
             txtBox.SendKeys("Tomato");
             //select the ajax checkbox
-            IWebElement chkAjaxCheckBox = Driver.FindElement(By.XPath("//input[@name='ctl00$ContentPlaceHolder1$ChildMeal1']//following-sibling::div[text()='Cauliflower']"));
+            IWebElement chkAjaxCheckBox = driver.FindElement(By.XPath("//input[@name='ctl00$ContentPlaceHolder1$ChildMeal1']//following-sibling::div[text()='Cauliflower']"));
             chkAjaxCheckBox.Click();
 
-            //string comboxControlName = "ontentPlaceHolder1_AllMealsCombo";
-            // CustomControl control = new CustomControl();
+            //string comboxControlName = "ContentPlaceHolder1_AllMealsCombo";
+            //CustomControl control = new CustomControl();
             CustomControl.ComboBox("ContentPlaceHolder1_AllMealsCombo", "Tomato");
+            //CustomControl.ComboBox();
 
             Console.WriteLine("Part3Lesson");
             Assert.Pass();
-            Driver.Close();
+            driver.Close();
 
 
         }

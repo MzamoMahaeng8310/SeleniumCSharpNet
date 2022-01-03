@@ -10,6 +10,6 @@ namespace SeleniumCSharpNetCore
         //prop and double tab
         //it will bring up the get set properties 
 
-        public static IWebDriver Driver { get; set; }
+        public static IWebDriver driver { get; set; }
     }
 }
