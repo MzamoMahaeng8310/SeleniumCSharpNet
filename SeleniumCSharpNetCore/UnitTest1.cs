@@ -19,7 +19,7 @@ namespace SeleniumCSharpNetCore
             //options.AddArguments("--headless");
             //Console.WriteLine("Setup");
             //Driver = new ChromeDriver(options);
-                        Console.WriteLine("Setup");
+             Console.WriteLine("Setup");
             driver = new ChromeDriver();
         }
 
