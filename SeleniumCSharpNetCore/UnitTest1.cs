@@ -15,12 +15,17 @@ namespace SeleniumCSharpNetCore
         {
 
             // execute headless
-            //ChromeOptions options = new ChromeOptions();
-            //options.AddArguments("--headless");
+            ChromeOptions options = new ChromeOptions();
+            options.AddArguments("--headless");
+            options.AddArgument("--start-maximized");
+            // options.AddArguments("start-maximized");
+            driver = new ChromeDriver(options);
+            
+            Console.WriteLine("Setup To Execute In Headless Mode");
+
+            //Execute in normal browser mode 
+            //driver = new ChromeDriver();
             //Console.WriteLine("Setup");
-            //Driver = new ChromeDriver(options);
-             Console.WriteLine("Setup");
-            driver = new ChromeDriver();
         }
 
         //[Test]
@@ -86,13 +91,14 @@ namespace SeleniumCSharpNetCore
         {
 
             driver.Navigate().GoToUrl("https:///demowf.aspnetawesome.com/");
+            driver.Manage().Window.Maximize();
          
             //type in the auto complete checkbox
             IWebElement txtBox = driver.FindElement(By.Id("ContentPlaceHolder1_Meal"));
             txtBox.SendKeys("Tomato");
             //select the ajax checkbox
-            IWebElement chkAjaxCheckBox = driver.FindElement(By.XPath("//input[@name='ctl00$ContentPlaceHolder1$ChildMeal1']//following-sibling::div[text()='Cauliflower']"));
-            chkAjaxCheckBox.Click();
+            //IWebElement chkAjaxCheckBox = driver.FindElement(By.XPath("//input[@name='ctl00$ContentPlaceHolder1$ChildMeal1']//following-sibling::div[text()='Cauliflower']"));
+            //chkAjaxCheckBox.Click();
 
             //string comboxControlName = "ContentPlaceHolder1_AllMealsCombo";
             //CustomControl control = new CustomControl();
@@ -102,6 +108,7 @@ namespace SeleniumCSharpNetCore
             Console.WriteLine("Part3Lesson");
             Assert.Pass();
             driver.Close();
+            driver.Quit();
 
 
         }
