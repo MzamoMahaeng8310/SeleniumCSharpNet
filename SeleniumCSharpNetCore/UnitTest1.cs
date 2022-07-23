@@ -8,25 +8,26 @@ namespace SeleniumCSharpNetCore
 {
     public class Tests : DriverHelper
     {
-        public  IWebDriver Driver;
+        public IWebDriver Driver;
 
         [SetUp]
         public void Setup()
         {
 
-            // execute headless
-            ChromeOptions options = new ChromeOptions();
-            options.AddArguments("--headless");
-            options.AddArgument("--start-maximized");
-            // options.AddArguments("start-maximized");
-            driver = new ChromeDriver(options);
-            
-            Console.WriteLine("Setup To Execute In Headless Mode");
+        //    // execute headless
+        //    ChromeOptions options = new ChromeOptions();
+        //    options.AddArguments("--headless");
+        //    options.AddArgument("--start-maximized");
+        //    // options.AddArguments("start-maximized");
+        //    driver = new ChromeDriver(options);
 
-            //Execute in normal browser mode 
-            //driver = new ChromeDriver();
-            //Console.WriteLine("Setup");
-        }
+        //    Console.WriteLine("Setup To Execute In Headless Mode");
+
+        // Execute in normal browser mode
+        driver = new ChromeDriver();
+        Console.WriteLine("Setup");
+        
+            }
 
         //[Test]
         ////public void Test1()
@@ -52,23 +53,23 @@ namespace SeleniumCSharpNetCore
             js.ExecuteScript("window.scrollBy(0,3000);");
             Console.WriteLine("Tets 1");
             Assert.Pass();
-            driver.Close();
-
+            //driver.Close();
+            driver.Quit();
 
             //You should use Actions class to perform scrolling to element.
             //use this library using OpenQA.Selenium.Interactions;
-            var element = driver.FindElement(By.XPath("//a[contains(text(),'Community portal')]"));
-            Actions actions = new Actions(driver);
-            actions.MoveToElement(element);
-            actions.Perform();
-            element.Click();
+            //var element = driver.FindElement(By.XPath("//a[contains(text(),'Community portal')]"));
+            //Actions actions = new Actions(driver);
+            //actions.MoveToElement(element);
+            //actions.Perform();
+            //element.Click();
 
-            ////You should use Actions class to perform scrolling to element.
-            IJavaScriptExecutor jsscroll = (IJavaScriptExecutor)driver; // cast the driver into IJavaScriptExecutor
-                                                                        //IJavaScriptExecutor jsscroll = driver as IJavaScriptExecutor;
-            var elem = driver.FindElement(By.XPath("//a[contains(text(),'Community portal')]"));
-            jsscroll.ExecuteScript("arguments[0].scrollIntoView(true);", elem);
-            elem.Click();
+            //////You should use Actions class to perform scrolling to element.
+            //IJavaScriptExecutor jsscroll = (IJavaScriptExecutor)driver; // cast the driver into IJavaScriptExecutor
+            //                                                            //IJavaScriptExecutor jsscroll = driver as IJavaScriptExecutor;
+            //var elem = driver.FindElement(By.XPath("//a[contains(text(),'Community portal')]"));
+            //jsscroll.ExecuteScript("arguments[0].scrollIntoView(true);", elem);
+            //elem.Click();
 
 
             //If you want to scroll horizontally in the right direction, use the following JavaScript.
@@ -85,7 +86,7 @@ namespace SeleniumCSharpNetCore
 
 
 
-          }
+        }
         //    [Test]
         //public void Part3Lesson()
         //{
